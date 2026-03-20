@@ -4,7 +4,8 @@ import { initTabsHandler } from "./handlers/tabsHandler";
 import { Messenger } from "./messenger";
 import { createCustomCSS, updateCustomCSS } from "./style";
 
-console.log("VSCode-Animations: Successfully Installed!");
+console.log("VSCode Animations Plus: Successfully Installed!");
+console.log("VSCode Animations Plus: Loading update handler...");
 
 /**
  * This is responsible for updating the css file when it changes

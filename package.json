@@ -1,11 +1,11 @@
 {
-  "name": "vscode-animations",
-  "displayName": "VSCode Animations",
+  "name": "vscode-animations-plus",
+  "displayName": "VSCode Animations Plus",
   "description": "Clean and customizable animations for VSCode",
   "version": "2.0.7",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BrandonKirbyson/VSCode-Animations"
+    "url": "https://github.com/BrandonKirbyson/VSCode-Animations-Plus"
   },
   "extensionDependencies": [],
   "extensionKind": [
@@ -18,10 +18,10 @@
   },
   "publisher": "BrandonKirbyson",
   "readme": "README.md",
-  "homepage": "https://github.com/BrandonKirbyson/VSCode-Animations#readme",
+  "homepage": "https://github.com/BrandonKirbyson/VSCode-Animations-Plus#readme",
   "license": "MIT",
   "engines": {
-    "vscode": "^1.64.0"
+    "vscode": "^1.103.0"
   },
   "categories": [
     "Themes",
@@ -45,37 +45,37 @@
   "contributes": {
     "commands": [
       {
-        "command": "VSCode-Animations.enableAnimations",
+        "command": "VSCode-Animations-Plus.enableAnimations",
         "title": "Enable Animations",
         "category": "Animations"
       },
       {
-        "command": "VSCode-Animations.disableAnimations",
+        "command": "VSCode-Animations-Plus.disableAnimations",
         "title": "Disable Animations",
         "category": "Animations"
       },
       {
-        "command": "VSCode-Animations.openAnimationSettings",
+        "command": "VSCode-Animations-Plus.openAnimationSettings",
         "title": "Open Animation Settings",
         "category": "Animations"
       },
       {
-        "command": "VSCode-Animations.changeInstallMethod",
+        "command": "VSCode-Animations-Plus.changeInstallMethod",
         "title": "Change Install Method",
         "category": "Animations"
       },
       {
-        "command": "VSCode-Animations.openCustomCSS",
+        "command": "VSCode-Animations-Plus.openCustomCSS",
         "title": "Open Custom CSS",
         "category": "Animations"
       },
       {
-        "command": "VSCode-Animations.installAnimations",
+        "command": "VSCode-Animations-Plus.installAnimations",
         "title": "Install Animations",
         "category": "Animations"
       },
       {
-        "command": "VSCode-Animations.getScriptPath",
+        "command": "VSCode-Animations-Plus.getScriptPath",
         "title": "Get Script Path",
         "category": "Animations"
       }
@@ -286,17 +286,19 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "vsix": "vsce package"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
     "@types/node": "16.x",
-    "@types/vscode": "^1.64.0",
+    "@types/vscode": "^1.103.0",
     "@types/webpack": "^5.28.1",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
     "@vscode/test-electron": "^2.3.0",
+    "@vscode/vsce": "^3.7.1",
     "eslint": "^8.39.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",

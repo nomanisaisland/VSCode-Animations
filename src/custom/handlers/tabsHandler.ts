@@ -19,8 +19,8 @@ export function initTabsHandler() {
     mutations.forEach((mutation) => {
       //Check that the target is only .tabs-container or a direct child of it
       if (
-        (mutation.target as HTMLElement).className !== "tabs-container" &&
-        mutation.target.parentElement?.className !== "tabs-container"
+        !(mutation.target as HTMLElement).classList.contains("tabs-container") &&
+        !mutation.target.parentElement?.classList.contains("tabs-container")
       )
         return;
 

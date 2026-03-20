@@ -6,6 +6,7 @@ import { MessengerData } from "./custom/messenger";
  * The status bar item that will be used to send messages to the vscode ui
  */
 export const messengerItem = vscode.window.createStatusBarItem(
+  "BrandonKirbyson.vscode-animations-plus",
   vscode.StatusBarAlignment.Right,
   100
 );
@@ -14,7 +15,8 @@ export const messengerItem = vscode.window.createStatusBarItem(
  * Initializes the status bar item
  */
 export function initMessenger() {
-  messengerItem.text = "";
+  messengerItem.text = "$(loading~spin) "; // Add a space and an icon that we will hide
+  messengerItem.tooltip = "VSCode Animations Plus Messenger";
   messengerItem.accessibilityInformation = {
     label: "",
   };

@@ -26,33 +26,44 @@ export class Messenger {
   }) {
     const interval = setInterval(() => {
       this._messengerElement = document.getElementById(
-        "BrandonKirbyson.vscode-animations"
+        "BrandonKirbyson.vscode-animations-plus"
       );
 
-      const content = this._messengerElement?.getAttribute("aria-label");
-
-      if (!this._messengerElement || content === "") return;
-
-      clearInterval(interval); //Clear the interval
-
-      handlers.onLoad(this.data);
-
-      const observer = new MutationObserver((mutations: any) => {
-        mutations.forEach((mutation: any) => {
-          if (
-            mutation.type === "attributes" &&
-            mutation.attributeName === "aria-label"
-          ) {
-            const newCSS = mutation.target.getAttribute("aria-label");
-            if (newCSS) {
-              handlers.onUpdate(this.data);
-            }
+      // If not found by ID, scan ALL elements with aria-label
+      if (!this._messengerElement) {
+        const items = document.querySelectorAll("[aria-label]");
+        for (const el of Array.from(items)) {
+          const label = el.getAttribute("aria-label");
+          if (label && label.includes('{"settings":') && label.includes('"css":')) {
+            console.log("VSCode Animations Plus: Found messenger by aria-label content match.");
+            this._messengerElement = el as HTMLElement;
+            break;
           }
-        });
-      });
-      observer.observe(this._messengerElement, {
-        attributes: true, //Configure it to listen to attribute changes
-      });
+        }
+      }
+
+      if (this._messengerElement) {
+        const content = this._messengerElement.getAttribute("aria-label");
+        if (content && content !== "") {
+          console.log("VSCode Animations Plus: Messenger found and data received!");
+          clearInterval(interval);
+          handlers.onLoad(this.data);
+
+          const observer = new MutationObserver((mutations: any) => {
+            mutations.forEach((mutation: any) => {
+              if (
+                mutation.type === "attributes" &&
+                mutation.attributeName === "aria-label"
+              ) {
+                handlers.onUpdate(this.data);
+              }
+            });
+          });
+          observer.observe(this._messengerElement, {
+            attributes: true,
+          });
+        }
+      }
     }, 100);
   }
 

@@ -44,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "VSCode-Animations.installAnimations",
+      "VSCode-Animations-Plus.installAnimations",
       () => {
         installManager.verifyInstallMethod();
         installManager.install();
@@ -54,7 +54,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "VSCode-Animations.changeInstallMethod",
+      "VSCode-Animations-Plus.changeInstallMethod",
       () => {
         if (forVSCode) {
           installManager.showInstallMethodPicker();
@@ -68,7 +68,7 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand("VSCode-Animations.getScriptPath", () => {
+    vscode.commands.registerCommand("VSCode-Animations-Plus.getScriptPath", () => {
       vscode.env.clipboard.writeText(installManager.getPath());
       vscode.window.showInformationMessage(
         `Animations Script Path Copied to Clipboard! (${installManager.getPath()})`
@@ -81,7 +81,7 @@ export function activate(context: vscode.ExtensionContext) {
    */
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "VSCode-Animations.disableAnimations",
+      "VSCode-Animations-Plus.disableAnimations",
       () => {
         vscode.workspace
           .getConfiguration("animations")
@@ -98,7 +98,7 @@ export function activate(context: vscode.ExtensionContext) {
    */
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "VSCode-Animations.enableAnimations",
+      "VSCode-Animations-Plus.enableAnimations",
       () => {
         vscode.workspace
           .getConfiguration("animations")
@@ -115,7 +115,7 @@ export function activate(context: vscode.ExtensionContext) {
    */
   context.subscriptions.push(
     vscode.commands.registerCommand(
-      "VSCode-Animations.openAnimationSettings",
+      "VSCode-Animations-Plus.openAnimationSettings",
       () => {
         vscode.commands
           .executeCommand("workbench.action.openSettings", "animations") //Open the settings menu at the animations section
@@ -130,7 +130,7 @@ export function activate(context: vscode.ExtensionContext) {
    * Register the command to open the custom animations css file
    */
   context.subscriptions.push(
-    vscode.commands.registerCommand("VSCode-Animations.openCustomCSS", () => {
+    vscode.commands.registerCommand("VSCode-Animations-Plus.openCustomCSS", () => {
       vscode.workspace
         .openTextDocument(
           vscode.Uri.file(

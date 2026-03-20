@@ -313,7 +313,7 @@ export class InstallationManager {
 
     if (auto) {
       if (customImports && customImports.length > 0) {
-        const regex = /brandonkirbyson\.vscode-animations-\d+\.\d+\.\d+/; //Regex to match the version number in the extension id
+        const regex = /brandonkirbyson\.vscode-animations-plus-\d+\.\d+\.\d+/; //Regex to match the version number in the extension id
         //Loop through the list of imports
         for (let i = 0; i < customImports.length; i++) {
           const match = customImports[i].match(regex); //Get the version number from the extension id using the regex
@@ -355,7 +355,7 @@ export class InstallationManager {
     ); //Get the current list of imports
 
     if (customImports && customImports.length > 0) {
-      const regex = /brandonkirbyson\.vscode-animations-\d+\.\d+\.\d+/; //Regex to match the version number in the extension id
+      const regex = /brandonkirbyson\.vscode-animations-plus-\d+\.\d+\.\d+/; //Regex to match the version number in the extension id
       //Loop through the list of imports
       for (let i = 0; i < customImports.length; i++) {
         const match = customImports[i].match(regex); //Get the version number from the extension id using the regex
@@ -382,7 +382,8 @@ export class InstallationManager {
         (path.substring(path.length - endOfPath.length) === endOfPath || //If path ends with /dist/updateHandler.js
           path.substring(path.length - endOfPathDev.length) === endOfPathDev) && //If path ends with VSCode-Animations/dist/updateHandler.js
         (path.includes("VSCode-Animations") ||
-          path.includes("brandonkirbyson.vscode-animations")) //If path contains reference to VSCode-Animations
+          path.includes("brandonkirbyson.vscode-animations") ||
+          path.includes("brandonkirbyson.vscode-animations-plus")) //If path contains reference to VSCode-Animations
       )
         continue;
 
